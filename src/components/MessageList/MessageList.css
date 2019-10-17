@@ -2,7 +2,7 @@
   margin-bottom: 8px;
 }
 
-.list-message__item:hover{
+.list-message__item:hover {
   box-shadow: 0 8px 24px -14px rgba(17, 25, 166, 0.2);
   background-color: #f8f9ff;
 }
@@ -11,10 +11,10 @@
   color: #715dff;
 }
 
-.list-message__item:hover .item__date{
+.list-message__item:hover .item__date {
   color: #141740;
 }
 
-.list-message__item:hover .item__text{
+.list-message__item:hover .item__text {
   color: #141740;
-} 
+}
