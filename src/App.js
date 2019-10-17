@@ -34,7 +34,7 @@ class App extends Component {
   getUsersMessages = () => {
     fetch(`https://jsonplaceholder.typicode.com/posts`)
       .then(res => {
-        if (res.status >= 200 && res.status < 300) {
+        if (res.status === 200) {
           return res;
         } else {
           let error = new Error(res.statusText);
@@ -45,8 +45,8 @@ class App extends Component {
       .then(res => res.json())
       .then(result => this.setState({ messages: result }))
       .catch(e => {
-        console.log("Error: " + e.message);
-        console.log(e.response);
+        console.error("Error: " + e.message);
+        console.error(e.response);
       });
   };
 
