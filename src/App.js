@@ -1,26 +1,71 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Header from "./components/Header/Header.js";
+import Main from "./components/Main/Main.js";
+
+const DEFAULT_STATE = {
+  messages: [],
+  value: ""
+};
+class App extends Component {
+  state = DEFAULT_STATE;
+
+  handleChange = event => {
+    this.setState({ value: event.target.value });
+    this.getUsersMessages();
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+
+    const result = this.state.messages.filter(item => {
+      if (
+        item.title.toLowerCase().includes(this.state.value.toLowerCase()) ||
+        item.body.toLowerCase().includes(this.state.value.toLowerCase())
+      ) {
+        return item;
+      }
+    });
+
+    this.setState({ messages: result });
+  };
+
+  getUsersMessages = () => {
+    fetch(`https://jsonplaceholder.typicode.com/posts`)
+      .then(res => {
+        if (res.status >= 200 && res.status < 300) {
+          return res;
+        } else {
+          let error = new Error(res.statusText);
+          error.response = res;
+          throw error;
+        }
+      })
+      .then(res => res.json())
+      .then(result => this.setState({ messages: result }))
+      .catch(e => {
+        console.log("Error: " + e.message);
+        console.log(e.response);
+      });
+  };
+
+  componentDidMount() {
+    this.getUsersMessages();
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <Header
+          onSubmit={this.handleSubmit}
+          onChange={this.handleChange}
+          value={this.value}
+        />
+        <Main messages={this.state.messages} />
+      </div>
+    );
+  }
 }
 
 export default App;

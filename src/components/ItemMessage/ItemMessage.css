@@ -1,0 +1,68 @@
+
+.item__container__logo {
+    margin-right: 12px;
+  }
+  
+  .item__container__message {
+    width: 100%;
+  }
+  
+  .item__container-name-and-date {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+.item {
+    display: flex;
+    width: 100%;
+    padding: 16px;
+    border-radius: 6px;
+    box-shadow: 0 8px 24px -14px rgba(75, 78, 128, 0.2);
+    background-color: #ffffff;
+  }
+  
+  .logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background-image: url("img/man.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+  }
+  
+  .logo__online {
+    position: relative;
+    top: 32px;
+    left: 32px;
+  }
+  
+  .online {
+    width: 8px;
+    height: 8px;
+    border: solid 2px #ffffff;
+    background-color: #5fcc2b;
+    border-radius: 4px;
+  }
+  
+  .item__name {
+    flex: 1;
+    color: #141740;
+    font-size: 14px;
+    text-decoration: none;
+  }
+  
+  .item__date {
+    font-size: 11px;
+    text-align: right;
+    color: #adaec4;
+  }
+  
+  .item__text {
+    margin-top: 4px;
+    font-size: 12px;
+    color: #9394a7;
+    word-spacing: 0.5px;
+    line-height: 16px;
+    letter-spacing: 0.2px;
+  }

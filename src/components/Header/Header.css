@@ -1,0 +1,40 @@
+.header {
+    width: 100%;
+    padding: 27px 16px 16px;
+    background-image: url("img/circles-mobile-375.svg"),
+      linear-gradient(200deg, #710fbe, #252fb3);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .header__container-title-and-counter {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .header__title {
+    flex: 1;
+  }
+
+.header__search-form {
+  margin-top: 15px;
+}
+
+.title {
+  font-size: 22px;
+  color: #ffffff;
+  font-weight: 800;
+}
+
+.message-counter {
+  min-width: 42px;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 15px;
+  background-color: #ff584f;
+  font-size: 12px;
+  padding-top: 5px;
+  flex-shrink: 0;
+}
+
