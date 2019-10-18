@@ -6,6 +6,7 @@ import Main from "./components/Main/Main.js";
 
 const DEFAULT_STATE = {
   messages: [],
+  showMessages:[],
   value: ""
 };
 class App extends Component {
@@ -13,23 +14,26 @@ class App extends Component {
 
   handleChange = event => {
     this.setState({ value: event.target.value });
-    this.getUsersMessages();
   };
 
   handleSubmit = event => {
-    event.preventDefault();
+     event.preventDefault();
+     event.stopPropagation();
+     
+     const messages = this.state.messages;
 
-    const result = this.state.messages.filter(item => {
-      if (
-        item.title.toLowerCase().includes(this.state.value.toLowerCase()) ||
-        item.body.toLowerCase().includes(this.state.value.toLowerCase())
-      ) {
-        return item;
-      }
-    });
-
-    this.setState({ messages: result });
-  };
+      if(this.state.value != ''){const result = messages.filter(item=>{
+            if ( 
+              item.title.toLowerCase().includes(this.state.value.toLowerCase()) ||
+              item.body.toLowerCase().includes(this.state.value.toLowerCase())
+              ) {
+              return item;
+            }
+          });
+        this.setState({ showMessages: result }) ;
+     } else this.setState({ showMessages: messages })
+   
+  }
 
   getUsersMessages = () => {
     fetch(`https://jsonplaceholder.typicode.com/posts`)
@@ -43,7 +47,7 @@ class App extends Component {
         }
       })
       .then(res => res.json())
-      .then(result => this.setState({ messages: result }))
+      .then(result => this.setState({ messages: result,  showMessages: result }))
       .catch(e => {
         console.error("Error: " + e.message);
         console.error(e.response);
@@ -62,7 +66,7 @@ class App extends Component {
           onChange={this.handleChange}
           value={this.value}
         />
-        <Main messages={this.state.messages} />
+        <Main messages={this.state.showMessages} />
       </div>
     );
   }
