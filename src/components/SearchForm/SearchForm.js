@@ -1,26 +1,23 @@
-import React from "react";
+import React, {useContext} from "react";
 
-import { controlClassName } from "../../helper.js";
-
+import Input from '../Input/Input.js';
+import SearchButton from '../SearchButton/SearchButton.js';
 import "./SearchForm.css";
+import cn from 'classnames';
+import {MyContext} from '../../App.js'
 
-const SearchForm = ({ onChange, onSubmit, value, className }) => {
+const SearchForm = ({ className }) => {
+  const {onSubmit} = useContext(MyContext);
   return (
-    <form
+   <form
       onSubmit={onSubmit}
       id="search"
-      className={`search-form ${controlClassName(className)}`}
+      className= {cn('search-form', className)}
       action="#"
     >
-      <input
-        onChange={onChange}
-        className="search-form__input input"
-        type="text"
-        placeholder="Search"
-        value={value}
-      />
-      <button className="search-form__button button" form="search"></button>
-    </form>
+      <Input className="search-form__input" />
+      <SearchButton />
+    </form> 
   );
 };
 

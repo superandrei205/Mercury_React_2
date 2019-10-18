@@ -1,3 +1,12 @@
+.item {
+  display: flex;
+  width: 100%;
+  padding: 16px;
+  border-radius: 6px;
+  box-shadow: 0 8px 24px -14px rgba(75, 78, 128, 0.2);
+  background-color: #ffffff;
+}
+
 .item__container__logo {
   margin-right: 12px;
 }
@@ -11,16 +20,7 @@
   flex-wrap: wrap;
 }
 
-.item {
-  display: flex;
-  width: 100%;
-  padding: 16px;
-  border-radius: 6px;
-  box-shadow: 0 8px 24px -14px rgba(75, 78, 128, 0.2);
-  background-color: #ffffff;
-}
-
-.logo {
+.item__logo {
   width: 40px;
   height: 40px;
   border-radius: 20px;
@@ -30,13 +30,10 @@
   background-size: 100%;
 }
 
-.logo__online {
+.item__online {
   position: relative;
   top: 32px;
   left: 32px;
-}
-
-.online {
   width: 8px;
   height: 8px;
   border: solid 2px #ffffff;

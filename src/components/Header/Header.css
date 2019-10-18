@@ -15,19 +15,17 @@
 
 .header__title {
   flex: 1;
+
+  font-size: 22px;
+  color: #ffffff;
+  font-weight: 800;
 }
 
 .header__search-form {
   margin-top: 15px;
 }
 
-.title {
-  font-size: 22px;
-  color: #ffffff;
-  font-weight: 800;
-}
-
-.message-counter {
+.header__message-counter {
   min-width: 42px;
   color: #ffffff;
   text-align: center;

@@ -1,14 +1,14 @@
 import React from "react";
 
 import "./ItemMessage.css";
-import { controlClassName } from "../../helper.js";
+import cn from 'classnames';
 
 const ItemMessage = ({ title, body, className }) => {
   return (
-    <li className={`item ${controlClassName(className)}`}>
+    <li className={cn('item', className)}>
       <div className="item__container__logo">
-        <div className="item__logo logo ">
-          <div className="logo__online online"></div>
+        <div className="item__logo">
+          <div className="item__online"></div>
         </div>
       </div>
       <div className="item__container__message">

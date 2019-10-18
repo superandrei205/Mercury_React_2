@@ -4,6 +4,8 @@ import "./App.css";
 import Header from "./components/Header/Header.js";
 import Main from "./components/Main/Main.js";
 
+
+export const MyContext = React.createContext();
 const DEFAULT_STATE = {
   messages: [],
   showMessages:[],
@@ -59,13 +61,16 @@ class App extends Component {
   }
 
   render() {
+    const searchMethods={
+      onChange: this.handleChange,
+      onSubmit: this.handleSubmit,
+      val: this.state.value
+    }
     return (
       <div className="App">
-        <Header
-          onSubmit={this.handleSubmit}
-          onChange={this.handleChange}
-          value={this.value}
-        />
+        <MyContext.Provider value={searchMethods}>
+          <Header />
+        </MyContext.Provider>
         <Main messages={this.state.showMessages} />
       </div>
     );
