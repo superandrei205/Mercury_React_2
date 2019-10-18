@@ -16,7 +16,6 @@ const SearchForm = ({ onChange, onSubmit, value, className }) => {
         onChange={onChange}
         className="search-form__input input"
         type="text"
-        required
         placeholder="Search"
         value={value}
       />
