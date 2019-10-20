@@ -6,7 +6,7 @@ import "./MessageList.css";
 
 const MessageList = ({ messages, className }) => {
   return (
-    <ul className= {cn( className)}>
+    <ul className= {cn(className)}>
       {messages.map((message, i) => (
         <ItemMessage
           className="list-message__item"

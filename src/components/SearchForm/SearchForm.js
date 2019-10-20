@@ -13,7 +13,6 @@ const SearchForm = ({ className }) => {
       onSubmit={onSubmit}
       id="search"
       className= {cn('search-form', className)}
-      action="#"
     >
       <Input className="search-form__input" />
       <SearchButton />

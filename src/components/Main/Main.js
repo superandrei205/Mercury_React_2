@@ -3,10 +3,10 @@ import React from "react";
 import MessageList from "../MessageList/MessageList.js";
 import "./Main.css";
 
-const Main=({ messages })=>{
+const Main=({messages})=>{
   return (
     <main className="main">
-      <MessageList className='main__list-message' messages={messages}/>
+      <MessageList messages={messages} className='main__list-message' />
     </main>
   );
 }

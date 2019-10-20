@@ -2,7 +2,7 @@ import React from "react";
 
 import "./SearchButton.css";
 
-const SearchButton = ({className }) => {
+const SearchButton = () => {
   return (
       <button  className='button' form="search"></button>
   );
